@@ -14,8 +14,8 @@ public class Track implements Obstacle {
         return (participant.getRunLimit() >= trackLength);
     }
 
-    public String getClassName(){
-        return "Track";
+    public void tryOvercomeThisObstacleByParticipant(ContestParticipant participant){
+        participant.run(this);
     }
 }
 

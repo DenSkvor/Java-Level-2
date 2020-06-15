@@ -65,23 +65,18 @@ public class Main {
     public static void doContest(ContestParticipant[] participants, Obstacle[] obstacleCourse){
         for (int i = 0; i < participants.length; i++){
             for(int j = 0; j < obstacleCourse.length; j++) {
-                if(obstacleCourse[j].getClassName().equals("Track")) {
-                    participants[i].run((Track) obstacleCourse[j]);
-                    if(!obstacleCourse[j].doCheckSuccess(participants[i])) {
-                        System.out.println(participants[i].getName() + " сходит с дистанции!");
-                        break;
-                    }
-                }
-                else if (obstacleCourse[j].getClassName().equals("Wall")) {
-                    participants[i].jump((Wall) obstacleCourse[j]);
-                    if(!obstacleCourse[j].doCheckSuccess(participants[i])) {
-                        System.out.println(participants[i].getName() + " сходит с дистанции!");
-                        break;
-                    }
+                tryOvercomeObstacleByParticipant(obstacleCourse[j], participants[i]);
+                if(!obstacleCourse[j].doCheckSuccess(participants[i])) {
+                    System.out.println(participants[i].getName() + " сходит с дистанции!");
+                    break;
                 }
             }
             System.out.println();
         }
+    }
+
+    public static void tryOvercomeObstacleByParticipant(Obstacle obstacle, ContestParticipant participant){
+        obstacle.tryOvercomeThisObstacleByParticipant(participant);
     }
 
 }

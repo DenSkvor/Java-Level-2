@@ -14,7 +14,7 @@ public class Wall implements Obstacle{
         return (participant.getJumpLimit() >= wallHeight);
     }
 
-    public String getClassName(){
-        return "Wall";
+    public void tryOvercomeThisObstacleByParticipant(ContestParticipant participant){
+        participant.jump(this);
     }
 }

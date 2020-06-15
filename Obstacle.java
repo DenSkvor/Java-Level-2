@@ -2,6 +2,6 @@ public interface Obstacle {
 
     boolean doCheckSuccess(ContestParticipant participant);
 
-    String getClassName();
+    void tryOvercomeThisObstacleByParticipant(ContestParticipant participant);
 
 }
